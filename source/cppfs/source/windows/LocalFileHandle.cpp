@@ -137,7 +137,7 @@ std::unique_ptr<AbstractFileIteratorBackend> LocalFileHandle::begin() const
     return std::unique_ptr<AbstractFileIteratorBackend>(new LocalFileIterator(m_fs, m_path));
 }
 
-unsigned int LocalFileHandle::size() const
+uint64_t LocalFileHandle::size() const
 {
     readFileInfo();
 
@@ -146,7 +146,7 @@ unsigned int LocalFileHandle::size() const
         // [TODO] Use 64bit numbers
         auto fileSizeH  = ((WIN32_FILE_ATTRIBUTE_DATA *)m_fileInfo)->nFileSizeHigh;
         auto fileSizeL = ((WIN32_FILE_ATTRIBUTE_DATA *)m_fileInfo)->nFileSizeLow;
-        return static_cast<unsigned int>(static_cast<__int64>(fileSizeH) << 32 | fileSizeL);
+        return static_cast<uint64_t>(static_cast<__int64>(fileSizeH) << 32 | fileSizeL);
     }
 
     return 0;

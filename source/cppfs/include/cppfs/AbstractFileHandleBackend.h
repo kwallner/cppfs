@@ -7,6 +7,7 @@
 #include <string>
 #include <ios>
 #include <iosfwd>
+#include <cstdint>
 
 #include <cppfs/cppfs_api.h>
 
@@ -132,7 +133,7 @@ public:
     *  @return
     *    Size if handle points to a file, else 0
     */
-    virtual unsigned int size() const = 0;
+    virtual uint64_t size() const = 0;
 
     /**
     *  @brief
