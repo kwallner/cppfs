@@ -1,3 +1,7 @@
+// Enforce 64-Bit Types for off_t, ino_t and blkcnt_t. See stat.2
+#ifndef _FILE_OFFSET_BITS
+#define _FILE_OFFSET_BITS 64
+#endif
 
 #include <cppfs/posix/LocalFileHandle.h>
 
@@ -158,7 +162,7 @@ std::unique_ptr<AbstractFileIteratorBackend> LocalFileHandle::begin() const
     return std::unique_ptr<AbstractFileIteratorBackend>(new LocalFileIterator(m_fs, m_path));
 }
 
-unsigned int LocalFileHandle::size() const
+uint64_t LocalFileHandle::size() const
 {
     readFileInfo();
 

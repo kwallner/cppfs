@@ -7,6 +7,7 @@
 #include <functional>
 #include <vector>
 #include <string>
+#include <cstdint>
 
 #include <cppfs/cppfs_api.h>
 
@@ -247,7 +248,7 @@ public:
     *  @return
     *    Size if handle points to a file, else 0
     */
-    unsigned int size() const;
+    uint64_t size() const;
 
     /**
     *  @brief
