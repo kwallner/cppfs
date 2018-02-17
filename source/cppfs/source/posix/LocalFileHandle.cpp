@@ -1,8 +1,3 @@
-// Enforce 64-Bit Types for off_t, ino_t and blkcnt_t. See stat.2
-#ifndef _FILE_OFFSET_BITS
-#define _FILE_OFFSET_BITS 64
-#endif
-
 #include <cppfs/posix/LocalFileHandle.h>
 
 #include <fstream>
